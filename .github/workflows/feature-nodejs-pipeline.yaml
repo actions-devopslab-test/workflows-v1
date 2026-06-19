@@ -39,14 +39,14 @@ jobs:
       id: unit_tests
       run: echo "run unit tests"
 
-    # - name: Update unit tests status
-    #   if: always()
-    #   uses: kishoregit143/workflows/.github/actions/update-commit-status@main
-    #   with:
-    #     sha: ${{ github.sha }}
-    #     state: ${{ steps.unit_tests.outcome }}     # success / failure / cancelled
-    #     context: UNIT_TESTS
-    #     description: ${{ steps.unit_tests.outcome }}  
+    - name: Update unit tests status
+      if: always()
+      uses: actions-devopslab-test/workflows-v1/.github/actions/update-commit-status@main
+      with:
+        sha: ${{ github.sha }}
+        state: ${{ steps.unit_tests.outcome }}     # success / failure / cancelled
+        context: UNIT_TESTS
+        description: ${{ steps.unit_tests.outcome }}  
 
     - name: docker build
       id: docker_build
