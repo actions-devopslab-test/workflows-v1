@@ -90,7 +90,7 @@ jobs:
 
     - name: Update scan status
       if: always()
-      uses: kishoregit143/workflows/.github/actions/update-commit-status@main
+      uses: kishoregit143/workflows/workflows-v1/.github/actions/update-commit-status@main
       with:
         sha: ${{ github.sha }}
         state: ${{ steps.security_check.outcome }}     # success / failure / cancelled
